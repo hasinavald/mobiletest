@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Signaler</ion-title>
+    <div (click) ="goNotifs()" slot="end" class="nbNotifs">{{nbNotifs}}</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+
+        <ion-item>
+          <ion-label position="floating">Description:</ion-label>
+          <ion-textarea [(ngModel)]="signal.description"></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label slot="start">Prendre photos</ion-label>
+          <ion-icon name="camera" slot="end" (click)="takePicture()"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label slot="start">impoter Image</ion-label>
+          <input id="files" [(ngModel)]="signal.file" type="file" (change)="onFileChange($event)">
+        </ion-item>
+
+
+          <!-- <ion-label>Image</ion-label>
+          <input type="file" (change)="onFileChange($event)" /> -->
+
+        <ion-item>
+          <ion-label>Type:</ion-label>
+          <ion-select [(ngModel)]="signal.typeSignal" value="brown" okText="Okay" cancelText="Dismiss">
+            <ion-select-option *ngFor="let type of Alltypes" value="{{type.type}}">{{type.type}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <!-- <ion-button [disabled]="(prise_photos.length == 0 && mydata.length == 0) || signal.description == '' " expand="full" (click)="valider()">Envoyer</ion-button> -->
+        <ion-button expand="full" (click)="sendSignal()">Envoyer</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

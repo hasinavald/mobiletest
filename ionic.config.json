@@ -1,0 +1,7 @@
+{
+  "name": "signaler",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

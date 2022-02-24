@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon (click)="openMenu()" name="grid-outline" class="MenuIcon"></ion-icon>
+      BIenvenue {{usrDatas?.username}}
+    </ion-title>
+    <div (click) ="goNotifs()" slot="end" class="nbNotifs">{{nbNotifs}}</div>
+  </ion-toolbar>
+</ion-header>
+<ion-menu side="start" menuId="custom" contentId="main" class="my-custom-menu">
+  <ion-header>
+    <ion-toolbar color="tertiary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="naigateTo('signal-form')">Signaler</ion-item>
+      <ion-item (click)="naigateTo('signalements')" >Mes signalements</ion-item>
+      <ion-item (click)="naigateTo('notifications')">Notifications</ion-item>
+      <ion-item (click)="logout()" style="color: red;">Déconnecter</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main"></ion-router-outlet>
+<ion-content>
+  
+</ion-content>

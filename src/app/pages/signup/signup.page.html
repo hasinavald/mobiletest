@@ -1,0 +1,71 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Créer un compte</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12" class="mb-3">
+                <ion-item>
+                    <ion-label position="floating">Nom d'utilisateur</ion-label>
+                    <ion-input class="mainty input_login" type="text" placeholder="Username"
+                        [(ngModel)]="userData.username">
+                    </ion-input>
+                    <div class="error" *ngIf="error.username != ''">
+                        <span>
+                            Username invalide
+                        </span>
+                    </div>
+                </ion-item>
+            </ion-col>
+
+            <ion-col size="12" class="mb-3">
+                <ion-item>
+                    <ion-label position="floating">Email</ion-label>
+                    <ion-input class="mainty input_login" type="text" placeholder="Email" [(ngModel)]="userData.email">
+                    </ion-input>
+                    <div class="error" *ngIf="error.email != ''">
+                        <span>
+                            Email invalide
+                        </span>
+                    </div>
+                </ion-item>
+            </ion-col>
+
+            <ion-col size="12" class="mb-3">
+                <ion-item>
+                    <ion-label position="floating">Mot de passe</ion-label>
+                    <ion-input class="mainty input_login" type="password" placeholder="Mot de passe"
+                        [(ngModel)]="userData.password">
+                    </ion-input>
+                    <div class="error" *ngIf="error.password != ''">
+                        <span>
+                            Mot de passe invalide
+                        </span>
+                    </div>
+                </ion-item>
+            </ion-col>
+
+            <ion-col size="12" class="mb-3">
+                <ion-item>
+                    <ion-label position="floating">Mot de passe</ion-label>
+                    <ion-input class="mainty input_login" type="password" placeholder="Confirmer le mot de passe"
+                        [(ngModel)]="password_confirmation">
+                    </ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col size="12" class="mb-3">
+                <div class="lg-button">
+                    <ion-button color="primary" expand="full" class="inscription" (click)="signup()">S'inscrire</ion-button>
+                </div>
+                <div class="lg-button">
+                    <ion-button color="secondary" expand="full" class="inscription" (click)="loginPage()">Se connecter
+                    </ion-button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

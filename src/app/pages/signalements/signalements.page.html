@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mes signalements</ion-title>
+    <div (click) ="goNotifs()" slot="end" class="nbNotifs">{{nbNotifs}}</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-item *ngFor="let signal of mySignals, let indx = index">
+    <ion-avatar slot="start">
+      <ion-img src="data:image/jpeg;base64,{{signal.image}}"></ion-img>
+    </ion-avatar>
+    <ion-label (click)="ViewSignals(signal)">
+      <div class="title">
+        {{signal.description}}
+      </div>
+      <div class="status">
+        <ion-label [ngClass]="{'new' : signal.status == 'Nouveau' , 'en_cours' : signal.status == 'En cours de traitement' , 'terminated' : signal.status == 'Terminé'  }">{{signal.status}}</ion-label>
+      </div>
+    </ion-label>
+    <ion-icon (click)="deleteSignal(signal)" name="trash" color="danger" slot="end"></ion-icon>
+  </ion-item>
+  
+</ion-content>
